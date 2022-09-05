@@ -23,9 +23,9 @@ then
     if
         [ -f ~/.local/share/applications/talespire-xdg.desktop ]
     then
-        JANKFILE=~/.local/share/applications/talespire-xdg.desktop
+        JANKFILE="~/.local/share/applications/talespire-xdg.desktop"
     else
-        JANKFILE=~/.local/share/applications/xdg-talespire.desktop
+        JANKFILE="~/.local/share/applications/xdg-talespire.desktop"
     fi
     #set a variable equal to whatever xdg-mime has
     TSXDG=$(xdg-mime query default x-scheme-handler/talespire)
