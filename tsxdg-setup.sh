@@ -19,10 +19,11 @@ echo "[Desktop Entry]
 Type=Application
 Name=TaleSpire
 StartupNotify=false
-MimeType=x-scheme-handler/talespire;" | tee ~/.local/applications/xdg-talespire.desktop;
+MimeType=x-scheme-handler/talespire
+# If you are still having issues, replace WINEESYNC=1 with WINEFSYNC=1" | tee ~/.local/applications/xdg-talespire.desktop;
 
 
-echo "Exec=/bin/bash -c 'env WINEPREFIX=\"/home/$USER/.steam/steam/steamapps/compatdata/720620/pfx\" WINEESYNC=1 /home/$USER/.steam/steam/steamapps/common/$TSVERSION/dist/bin/wine64 /home/$USER/.steam/steam/steamapps/common/TaleSpire/TaleSpireUrlRelay.exe %u'" >> ~/.local/applications/xdg-talespire.desktop
+echo "Exec=/bin/bash -c 'env WINEPREFIX=\"/home/$USER/.steam/steam/steamapps/compatdata/720620/pfx\" WINEESYNC=1 /home/$USER/.steam/steam/steamapps/common/$TSVERSION/dist/bin/wine64 /home/$USER/.steam/steam/steamapps/common/TaleSpire/TaleSpireUrlRelay.exe %u';" >> ~/.local/applications/xdg-talespire.desktop
 
 echo "Adding the MIME type."
 xdg-mime default xdg-talespire.desktop x-scheme-handler/talespire
