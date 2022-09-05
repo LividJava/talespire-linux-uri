@@ -37,6 +37,6 @@ then
     exit 0
 else
 echo "We could not find an existing file! Let's get you set up!"
-wget -N "https://github.com/lividjava/talespire-linux-uri/main/tsxdg-setup.sh" && bash tsxdg-setup.sh
+wget -N "https://raw.githubusercontent.com/LividJava/talespire-linux-uri/main/tsxdg-setup.sh" && bash tsxdg-setup.sh
 echo ""
 fi
