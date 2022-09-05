@@ -9,7 +9,7 @@ if [[ $TSVERSION == *"Proton"* ]];
 break
 else
 #Add the word Proton to the variable because Valve loves spaces.
-TSVERSION="Proton\ $TSVERSION"
+TSVERSION="Proton $TSVERSION"
 fi
 
 echo "Creating the MIME file."
@@ -22,7 +22,7 @@ StartupNotify=false
 MimeType=x-scheme-handler/talespire;" | tee ~/.local/applications/xdg-talespire.desktop;
 
 
-echo "Exec=/bin/bash -c \'env WINEPREFIX=\"/home/$USER/.steam/steam/steamapps/compatdata/720620/pfx\" WINEESYNC=1 /home/$USER/.steam/steam/steamapps/common/$TSVERSION/dist/bin/wine64 /home/$USER/.steam/steam/steamapps/common/TaleSpire/TaleSpireUrlRelay.exe %u\'" >> ~/.local/applications/xdg-talespire.desktop
+echo "Exec=/bin/bash -c 'env WINEPREFIX=\"/home/$USER/.steam/steam/steamapps/compatdata/720620/pfx\" WINEESYNC=1 /home/$USER/.steam/steam/steamapps/common/$TSVERSION/dist/bin/wine64 /home/$USER/.steam/steam/steamapps/common/TaleSpire/TaleSpireUrlRelay.exe %u'" >> ~/.local/applications/xdg-talespire.desktop
 
 echo "Adding the MIME type."
 xdg-mime default xdg-talespire.desktop x-scheme-handler/talespire
