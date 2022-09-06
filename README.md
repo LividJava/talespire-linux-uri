@@ -5,7 +5,7 @@ It is recommended you read below before installing!
 
 **Paste this command in a terminal to get started:**
 ```
-wget -N https://raw.githubusercontent.com/LividJava/talespire-linux-uri/main/tsxdg-setup.sh && bash tsxdg-main.sh
+wget -N https://raw.githubusercontent.com/LividJava/talespire-linux-uri/main/tsxdg-setup.sh | bash
 ```
 
 **What is this?**
