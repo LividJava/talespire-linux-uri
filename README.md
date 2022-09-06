@@ -5,7 +5,7 @@ It is recommended you read below before installing!
 
 **Paste this command in a terminal to get started:**
 ```
-wget -N https://raw.githubusercontent.com/LividJava/talespire-linux-uri/main/tsxdg-main.sh && bash tsxdg-main.sh
+wget -N https://raw.githubusercontent.com/LividJava/talespire-linux-uri/main/tsxdg-setup.sh && bash tsxdg-main.sh
 ```
 
 **What is this?**
@@ -20,8 +20,6 @@ This is really for someone who is using linux and just wants to get up and runni
 
 **What does it do?**
 <br/>
-It first tests for a common mixup when the files were conceptuallized by Doskious and Adriannom, then tries to fix it to what MIME is looking for.
-
-If not one is found, it then proceeds onto the next script, that creates and sets up the actual files.
+It creates a `.desktop` file pointing to the `TaleSpireURIRelay.exe` executable, and runs it under the same prefix as TaleSpire. It will let you use `talespire://` URIs in Linux.
 
 Huge thanks to Doskious and Adriannom who put this whole thing together!
