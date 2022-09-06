@@ -1,6 +1,12 @@
 #!/bin/sh
 WHEREAMI=$(pwd)
 
+# Root check! We should not be running as root!
+if [[ $(id -u) -eq 0 ]]; then
+    echo "Do not run this script as root!"
+    exit 1
+fi
+
 echo "Welcome to the UNOFFICIAL Talespire URI Install script!"
 echo "Please note, this is a Community Script, and is NOT OFFICIALLY SUPPORTED!"
 echo ""
