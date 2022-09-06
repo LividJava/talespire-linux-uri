@@ -14,12 +14,14 @@ This script is simply an attempt to automatically add the Talespire URI Relay to
 
 **Known Caveats**
 <br/>
-This installation script assumes that you are using a Native steam installation, along with Default installation path for both Steam and Talespire. (Everything is installed in ~/.local/share/Steam)
+If you have a non-standard installation, this script will break. It will do it's best to try to achieve agnostic installation.
 
-This is really for someone who is using linux and just wants to get up and running without messing about with a terminal/config files.
+If you've installed Vanilla Proton to the default install location, and TaleSpire somewhere else. This script will not work. You must manually edit the file after the script finishes.
+
+If your Wineprefix starts with FSYNC rather than ESYNC you will need to change this post installation.
 
 **What does it do?**
 <br/>
 It creates a `.desktop` file pointing to the `TaleSpireURIRelay.exe` executable, and runs it under the same prefix as TaleSpire. It will let you use `talespire://` URIs in Linux.
 
-Huge thanks to Doskious and Adriannom who put this whole thing together!
+Huge thanks to Doskious, Adriannom who put this whole thing together! Massive thanks to Chairmander for being a RegEx Guru.
