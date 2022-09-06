@@ -7,6 +7,17 @@ if [[ $(id -u) -eq 0 ]]; then
     exit 1
 fi
 
+#FSYNC FIX
+if [[ $1 == fsync ]]; then
+    echo "Fixing FSYNC error"
+    sed -i s/WINEESYNC/WINEFSYNC/g ~/.local/share/applications/xdg-talespire.desktop
+    #artifical delay bc it can seem too quick
+    sleep 1
+    echo "Should be fixed! Re-test!"
+    exit
+fi
+
+# Script Start
 echo "Welcome to the UNOFFICIAL Talespire URI Install script!"
 echo "Please note, this is a Community Script, and is NOT OFFICIALLY SUPPORTED!"
 echo ""
@@ -73,6 +84,8 @@ xdg-mime default xdg-talespire.desktop x-scheme-handler/talespire
 sleep 1
 echo "And we're done! Test if everything is setup correctly with 'xdg-open talespire://dice/TEST:1d20'"
 echo "This will roll a d20 labeled TEST in Talespire if everything is setup properly"
+echo ""
+echo "If you get an error about FSYNC re-run this script with \"fsync\" appended IE \"bash tsxdg-setup.sh fsync\""
 #Clean up after ourselves!
 cd $WHEREAMI
 #rm "tsxdg-setup.sh"
