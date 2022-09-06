@@ -18,8 +18,6 @@ If you have a non-standard installation, this script will break. It will do it's
 
 If you've installed Vanilla Proton to the default install location, and TaleSpire somewhere else. This script will not work. You must manually edit the file after the script finishes.
 
-If your Wineprefix starts with FSYNC rather than ESYNC you will need to change this post installation.
-
 **What does it do?**
 <br/>
 It creates a `.desktop` file pointing to the `TaleSpireURIRelay.exe` executable, and runs it under the same prefix as TaleSpire. It will let you use `talespire://` URIs in Linux.
