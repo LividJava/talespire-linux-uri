@@ -49,13 +49,13 @@ if [[ $TSVERSION == *"Proton"* ]]; then
     sleep 5
 else
 #Add the word Proton to the variable because Valve loves spaces.
-    TSVERSION="Proton $TSVERSION"
+    TSVERSION="Proton\ $TSVERSION"
     echo "We found TaleSpire using Vanilla $TSVERSION. If this isn't right quit now."
     #Assume Vanilla Proton is installed in the same Library Folder as TaleSpire.
     echo ""
     echo "Because you are using a Vanilla Proton version, we are assuming its in the same location as TaleSpire."
     echo "If this isn't correct, After the script finishes manually modify the path in ~/.local/share/applications/xdg-talespire.desktop"
-    PROTONPATH=$TSLIB/steamapps/$TSVERSION/dist/bin
+    PROTONPATH=$TSLIB/steamapps/common/$TSVERSION/dist/bin
     sleep 5
 fi
 sleep 1
