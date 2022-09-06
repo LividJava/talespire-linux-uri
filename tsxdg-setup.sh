@@ -15,7 +15,7 @@ sleep 5
 cd ~/.local/share/applications
 
 echo "Getting Proton Version of Talespire."
-TSVERSION=$(cat ~/notporn/steamlib/steamapps/compatdata/720620/version)
+TSVERSION=$(cat ~/.steam/steam/steamapps/compatdata/720620/version)
 if [[ $TSVERSION == *"Proton"* ]]; then
 # Exit early if the version file contains proton. We're done.
     echo "We found TaleSpire using $TSVERSION. If this isn't right quit now."
