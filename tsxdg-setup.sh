@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 WHEREAMI=$(pwd)
 
 # Root check! We should not be running as root!
@@ -7,26 +7,46 @@ if [[ $(id -u) -eq 0 ]]; then
     exit 1
 fi
 
-#FSYNC FIX
-if [[ $1 == fsync ]]; then
+#Microfixes for FSYNC and ESYNC
+case $1 in
+    fsync)
     echo "Fixing FSYNC error"
     sed -i s/WINEESYNC/WINEFSYNC/g ~/.local/share/applications/xdg-talespire.desktop
     #artifical delay bc it can seem too quick
     sleep 1
     echo "Should be fixed! Re-test!"
     exit
-fi
+    ;;
+    esync)
+    echo "Fixing ESYNC error"
+    sed -i s/WINEFSYNC/WINEESYNC/g ~/.local/share/applications/xdg-talespire.desktop
+    sleep 1
+    echo "Should be fixed! Re-test!"
+    exit
+    ;;
+    help)
+    echo "This script has the following additional options:"
+    echo "help - You are here."
+    echo ""
+    echo "fsync - Changes the .desktop file to use FSYNC (uses ESYNC by default)"
+    echo ""
+    echo "esync - Changes the .desktop file to use ESYNC (This is applied by default)"
+    echo ""
+    echo "Additional arguments will be ignored. Running without arguments will run the installer."
+    ;;
+esac
+
 
 # Script Start
-echo "Welcome to the UNOFFICIAL Talespire URI Install script!"
+echo "Welcome to the UNOFFICIAL TaleSpire URI Install script!"
 echo "Please note, this is a Community Script, and is NOT OFFICIALLY SUPPORTED!"
 echo ""
-echo "This script assumes that you are using DEFAULT install paths for Steam AND Talespire."
-echo "If you are not, you MUST install manually!"
+echo "This script will attempt to locate TaleSpire and Proton versions automatically."
+echo "If you have issues using this script ping @LividJava#8420 in the TS Discord."
 echo ""
 sleep 5
 
-#We need to test if the config file is a default Steam Proton or something else.
+#Find TaleSpire and the right Proton Version
 
 #Get the Path for Talespire from the libraryfolders.vdf CHAIRMANDER POG!
 TSLIB=$(cat ~/.steam/steam/steamapps/libraryfolders.vdf | grep -Pzo "\"path\"\s*\"(.*)\"[^{]*\{[^}]*\"720620\"" | grep -Pao "/[^\"]*")
@@ -39,7 +59,7 @@ cd ~/.local/share/applications
 
 #Read the version file and save it as a variable
 echo "Getting Proton Version of Talespire."
-TSVERSION=$(cat $TSLIB/steamapps/compatdata/720620/version)
+TSVERSION=$(cat "$TSLIB"/steamapps/compatdata/720620/version)
 if [[ $TSVERSION == *"Proton"* ]]; then
 # Exit early if the version file contains a proton fork. We're done.
     echo "We found TaleSpire using $TSVERSION. If this isn't right quit now."
@@ -86,7 +106,7 @@ echo "And we're done! Test if everything is setup correctly with 'xdg-open tales
 echo "This will roll a d20 labeled TEST in Talespire if everything is setup properly"
 echo ""
 echo "If you get an error about FSYNC re-run this script with \"fsync\" appended IE \"bash tsxdg-setup.sh fsync\""
-#Clean up after ourselves!
-cd $WHEREAMI
-#rm "tsxdg-setup.sh"
+
+cd "$WHEREAMI"
+
 exit 0
