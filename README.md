@@ -13,13 +13,7 @@ After running the script Open TaleSpire and run this in your terminal.
 xdg-open talespire://dice/Test:1d20+5
 ```
 This should add a dice to your screen and when you roll it, It should be called Test and be a d20.
-
-If you get an error about fsync run this command (assuming you didn't delete the script).
-```bash
-bash tsxdg-setup.sh fsync
-```
-
-<br/>
+<hr/>
 
 #### **What is this?**
 This script is simply an attempt to automatically add the Talespire URI Relay to xdg-mime, keeping it under the same proton prefix and version (At time of installation)
@@ -31,5 +25,16 @@ If you've installed Vanilla Proton to the default install location, and TaleSpir
 
 #### **What does it do?**
 It creates a `.desktop` file pointing to the `TaleSpireURIRelay.exe` executable, and runs it under the same prefix as TaleSpire. It will let you use `talespire://` URIs in Linux.
+
+#### Microfixes
+This script has some additional options for quickly fixing some minor errors, these are to be run post installation.
+
+If you get an error about fsync run this command (assuming you didn't delete the script).
+```bash
+bash tsxdg-setup.sh fsync
+```
+Additionally, you can run with `esync` to restore the default values
+
+<br/>
 
 Huge thanks to Doskious, Adriannom who put this whole thing together! Massive thanks to Chairmander for being a RegEx Guru.
