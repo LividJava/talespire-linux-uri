@@ -1,3 +1,6 @@
+# As of October 16th 2023 these scripts are no longer required. Please see [this post by Bouncyrock](https://bouncyrock.com/news/articles/talespire-patch-release-linux-out-of-box-experience) for more details. This repository is Archived.
+
+
 # talespire-linux-uri
 An installer script to Install and Setup an XDG-MIME for Talespire URIs
 
